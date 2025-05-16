@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Landing Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        .intro {
+            display: flex;
+            padding: 2rem;
+            background: #f4f4f4;
+        }
+        .intro-image {
+            width: 50%;
+            text-align: center;
+        }
+        .intro-image img {
+            border-radius: 50%;
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+        }
+        .intro-bio {
+            width: 50%;
+            padding: 1rem;
+        }
+        .education {
+            padding: 2rem;
+            text-align: center;
+            background: #fff;
+        }
+        .education-logo {
+            margin: 1rem auto;
+        }
+        .projects {
+            padding: 2rem;
+            background: #f4f4f4;
+        }
+        .projects h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .project-container {
+            display: flex;
+            justify-content: space-around;
+        }
+        .project {
+            width: 30%;
+            text-align: center;
+            padding: 1rem;
+            background: #fff;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .project:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 800px;
+            display: flex;
+        }
+        .modal-github {
+            width: 30%;
+            text-align: center;
+        }
+        .modal-github img {
+            width: 100px;
+            height: 100px;
+        }
+        .modal-story {
+            width: 70%;
+            padding: 0 1rem;
+        }
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+        }
+        .social-icons {
+            margin: 1rem 0;
+        }
+        .social-icons a {
+            margin: 0 10px;
+            color: #fff;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to My Personal Landing Page</h1>
+    </header>
+    <section class="intro">
+        <div class="intro-image">
+            <img src="me.jpg" alt="Huỳnh Trọng Nghĩa">
+            <h2>Huynh Trong Nghia</h2>
+        </div>
+        <div class="intro-bio">
+            <p>I am an enthusiastic and highly motivated individual with a strong
+                passion for artificial intelligence and machine learning. Although I am a
+                newcomer to the professional field, I have been actively exploring and
+                applying various AI models through personal projects and academic
+                work. I have experienced with Computer Vision models, NLP frameworks,
+                LLMs models.</p>
+        </div>
+    </section>
+    <section class="education">
+        <h2>Education</h2>
+        <img class="education-logo" src="UIT.webp" alt="UIT">
+        <p>University of Information Technology</p>
+    </section>
+    <section class="projects">
+        <h2>PROJECTS</h2>
+        <div class="project-container">
+            <div class="project" onclick="showModal('SignBoard detection and extraction.', 'This project was built using YOLO for signboard detection and using OCR + Gemini API for info extraction')">
+                <h3>School project</h3>
+                <p>SignBoard detection and extraction.</p>
+            </div>
+            <div class="project" onclick="showModal('RAG LLMs project on E-commerce recommendation system', 'This project was built for answering and recommendating options')">
+                <h3>School project</h3>
+                <p>RAG LLMs project on E-commerce recommendation system</p>
+            </div>
+            <div class="project" onclick="showModal('Chatbot for job recommendation', 'This project focused on embedding and providing accurate job recommendation')">
+                <h3>School project</h3>
+                <p>Chatbot for job recommendation</p>
+            </div>
+        </div>
+    </section>
+
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div class="modal-github">
+                <img src="github.png" alt="GitHub">
+            </div>
+            <div class="modal-story">
+                <h3 id="modalTitle"></h3>
+                <p id="modalDescription"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showModal(title, description) {
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalDescription').textContent = description;
+            document.getElementById('projectModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('projectModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside the content
+        document.getElementById('projectModal').addEventListener('click', function(event) {
+            if (event.target === this) {
+                closeModal();
+            }
+        });
+    </script>
+
+    <footer>
+        <h2>Thank You!</h2>
+        <div class="social-icons">
+            <a href="http://fafacebook.com/htnghiaaa256/">Facebook</a>
+            <a href="https://www.linkedin.com/in/nghia-huynh-9423ab218/?eQSRP=xz63GFS8j7Rzhhaw47m0">LinkedIn</a>
+            <a href="https://github.com/ht-N?eQSRP=q0jwsppvuD5n7T6piIVE">GitHub</a>
+        </div>
+    </footer>
+</body>
+</html> 
